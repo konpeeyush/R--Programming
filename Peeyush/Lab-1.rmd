@@ -7,12 +7,35 @@ library(DataExplorer)
 ```
 ```{r}
 data_list<-list(airlines,airports,flights,planes,weather)
+```
+
+
+```{r}
 plot_str(data_list)
 ```
 ```{r}
-merge_airlines<-merge(flights,airlines,by="carrier",all.x=TRUE)
-merge_planes<-merge(merge_airlines,planes,by="")
-merge_airports_origin<-merge(merge_planes,airports,by.x="origin",by.y="faa",introduce(final_data), all x = TRUE,suffixes=c("_carrier","_origin"))
+merger_airlines <- merge(flights,airlines,by = "carrier",all.x = TRUE)
+plot_str(merger_airlines)
+```
+
+```{r}
+merge_planes <- merge(merger_airlines,planes,by = "tailnum", all.x = TRUE)
+plot_str(merge_planes)
+```
+
+```{r}
+merge_airports_origin <- merge(merge_planes,airports,by.x = "origin", by.y = "faa", all.x = TRUE, suffixes = c("_carrier","_origin"))
+plot_str(merge_airports_origin)
+```
+
+
+```{r}
+final_data <- merge(merge_airports_origin,airports,by.x = "dest",by.y = "faa", all.x = TRUE, suffixes = c("_origin","_dest"))
+# head(final_data["faa"],20)
+```
+
+```{r}
+plot_intro(final_data)
 ```
 
 
