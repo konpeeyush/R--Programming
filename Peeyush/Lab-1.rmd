@@ -1,4 +1,20 @@
 ```{r}
-
+install.packages("nycflights13")
+data<-read.csv(file.choose(),header=TRUE,sep=",")
+library(nycflights13)
+install.packages("DataExplorer")
+library(DataExplorer)
 ```
+```{r}
+data_list<-list(airlines,airports,flights,planes,weather)
+plot_str(data_list)
+```
+```{r}
+merge_airlines<-merge(flights,airlines,by="carrier",all.x=TRUE)
+merge_planes<-merge(merge_airlines,planes,by="")
+merge_airports_origin<-merge(merge_planes,airports,by.x="origin",by.y="faa",introduce(final_data), all x = TRUE,suffixes=c("_carrier","_origin"))
+```
+
+
+
 
