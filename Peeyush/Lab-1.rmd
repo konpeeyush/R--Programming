@@ -37,6 +37,9 @@ final_data <- merge(merge_airports_origin,airports,by.x = "dest",by.y = "faa", a
 ```{r}
 plot_intro(final_data)
 ```
+```{r}
+plot_bar(final_data)
+```
 
 
 
