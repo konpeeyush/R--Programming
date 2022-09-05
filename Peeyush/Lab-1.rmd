@@ -40,7 +40,18 @@ plot_intro(final_data)
 ```{r}
 plot_bar(final_data)
 ```
+```{r}
+plot_histogram(final_data)
+```
 
+```{r}
+qq_data<-final_data[,("arr_delay","air_time","distance","seats")]
+```
+
+
+```{r}
+create_report(final_data)
+```
 
 
 
